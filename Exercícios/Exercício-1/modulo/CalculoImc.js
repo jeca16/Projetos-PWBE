@@ -17,27 +17,36 @@ const calcularImc = function(valorPeso, valorAltura){
     else{
         peso = Number(peso)
         altura = Number(altura)
+        resultado = Number(resultado)
         resultado = peso / (altura * altura)
-        console.log('Seu IMC é ' + resultado)
-
-        if(resultado < 18,5)
-            console.log('Você está abaixo do peso')
-        else if(resultado > 18,5 && resultado < 24,9)
-            console.log('Você está com peso normal')
-        else if(resultado > 25 && resultado < 29,9)
-            console.log('Você está acima do peso')
-        else if( resultado > 30 && resultado < 34,9)
-            console.log('Você está com obesidade I')
-        else if (resultado > 35 && resultado < 39,9)
-            console.log('Você está com obesidade II')
-        else if (resultado > 40)
-            console.log('Você está com obesidade III')
     }
-   
+    return resultado;
 }
 
-console.log(calcularImc('53','1,57'))
+const situacao = function(valorResultado){
+    let classificacao;
 
-// module.exports ={
-//         calcularImc
-//     }
+    let resultado = Number(valorResultado)
+    console.log(resultado)
+
+        if(resultado < 18.5)
+            classificacao = 'Você está abaixo do peso'
+        else if(resultado >= 18.5 && resultado <= 24.9)
+            classificacao = 'Você está com peso normal'
+        else if(resultado >= 25 && resultado <= 29.9)
+            classificacao = 'Você está acima do peso'
+        else if( resultado >= 30 && resultado <= 34.9)
+            classificacao = 'Você está com obesidade I'
+        else if (resultado >= 35 && resultado <= 39.9)
+            classificacao = 'Você está com obesidade II'
+        else if (resultado >= 40)
+            classificacao = 'Você está com obesidade III'
+
+        return classificacao;
+}
+
+// console.log(calcularImc('53','1,57'))
+module.exports ={
+        calcularImc,
+        situacao
+    }
