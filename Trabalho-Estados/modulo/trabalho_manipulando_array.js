@@ -5,7 +5,7 @@
  * versão:1.0                                                                *
  ****************************************************************************/
 
-var estados_e_cidades = require('./modulo/estados_cidades')
+var estados_e_cidades = require('./estados_cidades')
  
 const getListaDeEstados = function (){
     let listar_estadosJson = {}
@@ -118,9 +118,9 @@ const getCidades = function(sigla){
         if(cidades.sigla.includes(siglaEst )){
             lista_cidades_Json.uf = cidades.sigla
             lista_cidades_Json.descricao = cidades.nome
-            lista_cidades_Json.quant_cidade = cidadesEst.cidades.length
+            lista_cidades_Json.quant_cidade = cidades.cidades.length
 
-            cidade.cidades.forEach(function(cidade){
+            cidades.cidades.forEach(function(cidade){
                 let cidades_nome = cidade.nome
                 lista_cidades_Array.push(cidades_nome)
             })
@@ -130,4 +130,4 @@ const getCidades = function(sigla){
     return lista_cidades_Json
 }
 
-console.log(getCidades('SP'))
+console.log(getCidades('AC'))
