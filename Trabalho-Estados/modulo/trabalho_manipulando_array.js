@@ -20,8 +20,6 @@ const getListaDeEstados = function (){
 
     return listar_estadosJson
 }
-// console.log(getListaDeEstados())
-
 
 let contador = 0
 const getDadosEstado = function(sigla){
@@ -38,8 +36,6 @@ const getDadosEstado = function(sigla){
     })
     return dados_estadosJson
 }
-// console.log(getDadosEstado('RJ'))
-
 
 let contador2 = 0 
 const getCapitalEstado = function(sigla){
@@ -53,9 +49,6 @@ const getCapitalEstado = function(sigla){
     })
     return capital_estadoJson
 }
-// console.log(getCapitalEstado('RJ'))
-
-
 
 const getEstadosRegiao = function(regiao){
 
@@ -80,8 +73,6 @@ const getEstadosRegiao = function(regiao){
     regiao_estadoJson.estados = regiao_estadoArray
     return regiao_estadoJson
 }
-// console.log(getEstadosRegiao('Sul'))
-
 
 const getCapitalPais = function(){
     let capital_pais_Json = {}
@@ -106,8 +97,6 @@ const getCapitalPais = function(){
     capital_pais_Json.capitalEst = capital_pais_Array
     return capital_pais_Json
 }
-// console.log(getCapitalPais())
-
 
 const getCidades = function(sigla){
     siglaEst = sigla
@@ -130,4 +119,11 @@ const getCidades = function(sigla){
     return lista_cidades_Json
 }
 
-console.log(getCidades('AC'))
+module.exports={
+    getListaDeEstados,
+    getDadosEstado,
+    getCapitalEstado,
+    getEstadosRegiao,
+    getCapitalPais,
+    getCidades
+}
