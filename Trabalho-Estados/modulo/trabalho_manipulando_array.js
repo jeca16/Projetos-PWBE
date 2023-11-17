@@ -55,13 +55,13 @@ const getCapitalEstado = function(sigla){
 
 const getEstadosRegiao = function(regiao){
 
-    regiaoEst = regiao
+    let regiaoEst = regiao
 
     let regiao_estadoJson = {}
     let regiao_estadoArray = []
 
 
-    regiao_estadoJson.regiao = regiao
+    regiao_estadoJson.regiao = regiaoEst
     estados_e_cidades.estadosCidades.estados.forEach(function(regiao){
         if(regiao.regiao == regiaoEst){
 
