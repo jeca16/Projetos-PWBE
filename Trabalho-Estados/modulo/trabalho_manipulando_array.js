@@ -21,20 +21,23 @@ const getListaDeEstados = function (){
     return listar_estadosJson
 }
 
-let contador = 0
 const getDadosEstado = function(sigla){
     let dados_estadosJson = {}
-
+    let status = false
     estados_e_cidades.estadosCidades.estados.forEach(function(dados_estado){
-        if(sigla == estados_e_cidades.estadosCidades.estados[contador].sigla){
-            dados_estadosJson.uf = estados_e_cidades.estadosCidades.estados[contador].sigla
-            dados_estadosJson.descricao = estados_e_cidades.estadosCidades.estados[contador].nome
-            dados_estadosJson.capital = estados_e_cidades.estadosCidades.estados[contador].capital
-            dados_estadosJson.regiao = estados_e_cidades.estadosCidades.estados[contador].regiao
+        if(sigla == dados_estado.sigla){
+            dados_estadosJson.uf = dados_estado.sigla
+            dados_estadosJson.descricao = dados_estado.nome
+            dados_estadosJson.capital = dados_estado.capital
+            dados_estadosJson.regiao = dados_estado.regiao
+            status = true
         }
-        contador++
     })
-    return dados_estadosJson
+
+    if(status)
+        return dados_estadosJson
+    else
+        return false
 }
 
 let contador2 = 0 

@@ -49,10 +49,29 @@ app.use((request, response, next)=>{
 app.get('/estados/sigla', cors(), async function(request, response, next){
 
     let controleListaEstados = require('./modulo/trabalho_manipulando_array')
-    let estados = controleListaEstados.getCidades('RJ')
+    let estados = controleListaEstados.getListaDeEstados()
     response.json(estados)
     response.status(200)
 })
+
+// EndPoint: retorna os dados do estado filtrando pela sigla
+app.get('/estado/sigla/:uf', cors(), async function(request, response, next){
+    let siglaEstado = request.params.uf  //recebe uma variavel escaminhada por parametro na URL de requisição
+    let controleDadosEstados = require('./modulo/trabalho_manipulando_array.js') //import do arquivo de funções
+    let dadosEstado = controleDadosEstados.getDadosEstado(siglaEstado)
+
+    if(dadosEstado){
+        response.json(dadosEstado)
+        response.status(200)
+    }else{
+        response.status(404)
+        response.json({erro: "não foi possivel encontrar a sigla"})
+    }
+    
+})
+
+// EndPoint: retorna os dados da capital filtrando pela sigla 
+app.get()
 
 // executa a API e faz ela ficar aguardando requisições
 app.listen(8080, function(){
