@@ -13,6 +13,65 @@ var entradaDeDados = readline.createInterface({
     output: process.stdout
 })
 
+entradaDeDados.question('informe o seu sexo [f - m]: ', function (sexoProfessor) {
+    let sexoProf = sexoProfessor;
+    if (sexoProf == '') {
+        console.log("erro!!!: é obrigatorio informar o sexo do Professor!!")
+    } else if (sexoProf == 'f') {
+        entradaDeDados.question('Digite o nome da professora: ', function (nomeProfessora) {
+            let nomeProf = nomeProfessora;
+            if (nomeProf == '') {
+                console.log("erro!!!: é obrigatorio informar o nome da Professora!!")
+            }
+        })
+    } else if (sexoProf == 'm') {
+        entradaDeDados.question('Digite o nome do professor: ', function (nomeProfessor) {
+            let nomeProf = nomeProfessor;
+            if (nomeProf == '') {
+                console.log("erro!!!: é obrigatorio informar o nome do Professor!!")
+            }
+        })
+    }
+})
+
+entradaDeDados.question('informe o sexo do aluno [f - m]: ', function (sexoAluno) {
+    let sexAluno = sexoAluno;
+    if (sexAluno == '') {
+        console.log("erro!!!: é obrigatorio informar o sexo do aluno!!")
+    } else if (sexAluno == 'f') {
+        entradaDeDados.question('Digite o nome da aluna: ', function (nomeAluna) {
+            let nome = nomeAluna;
+            if (nome == '') {
+                console.log("erro!!!: é obrigatorio informar o nome da aluna!!")
+            } else if (sexAluno == 'm') {
+                entradaDeDados.question('Digite o nome do aluno: ', function (nomeAluno) {
+                    let nome = nomeAluno;
+                    if (nome == '') {
+                        console.log("erro!!!: é obrigatorio informar o nome do aluno!!")
+                    }
+                })
+            }
+        })
+    }
+})
+
+
+entradaDeDados.question('Digite o nome do curso: ', function (nomeCurso) {
+    let curso = nomeCurso;
+
+    if (curso == '') {
+        console.log("erro!!!: é obrigatorio informar o nome do curso!!")
+    }
+})
+
+entradaDeDados.question('Digite o nome da disciplina: ', function (nomeDisciplina) {
+    let disciplina = nomeDisciplina;
+
+    if (disciplina == '') {
+        console.log("Erro!!!: é obrigatorio informar o nome da disciplina!!")
+    }
+})
+
 entradaDeDados.question('Digite a primeira nota: ', function (primNota) {
     let nota1 = primNota
 
@@ -37,24 +96,166 @@ entradaDeDados.question('Digite a primeira nota: ', function (primNota) {
                     let resultadoMedia = CalculoMedia.calcularMedia(nota1, nota2, nota3, nota4)
                     let avaliacao = console.log(CalculoMedia.situacao(resultadoMedia))
 
-                if (avaliacao == 'está em exame') {
-                    entradaDeDados.question('Digite a nota de exame', function (quinNota) {
-                        let nota5 = quinNota;
-                        if (nota5 == '')
-                            console.log('ERRO!! é obrigatorio informar a nota para calcular a nova media')
-                        else if (isNaN(nota5))
-                            console.log('ERRO!! é obrigatorio informar apenas numero')
-                        else if (nota5 > 100)
-                            console.log('ERRO!! É OBRIGATORIO INFORMAR NUMERO ATE 100')
-                        else if (nota5 < 0)
-                            console.log('ERRO!! Informe apenas numero acima de 0')
-                        else{
-                            let notaExame = console.log(CalculoMedia.novaMedia(resultadoMedia, notaExame))
-
+                    if (avaliacao == 'Aprovado') {
+                        if (sexAluno == 'f') {
+                            console.log(" Aprovada")
+                            console.log("Relatório da aluna:")
+                            console.log("a aluna " + nome + "foi aprovada na disciplina" + disciplina)
+                            console.log("curso: " + curso)
+                            if (sexoProf == 'f') {
+                                console.log("professora: " + nomeProf)
+                                console.log("notas da aluna: " + nota1 + nota2 + nota3 + nota4)
+                                console.log("media final: " + resultadoMedia)
+                            } else if (sexoProf == 'm') {
+                                console.log("professor: " + nomeProf)
+                                console.log("notas da aluna: " + nota1 + nota2 + nota3 + nota4)
+                                console.log("media final: " + resultadoMedia)
+                            }
+                        } else if (sexAluno == 'm') {
+                            console.log("Aprovado")
+                            console.log("Relatório do aluno:")
+                            console.log("o aluno " + nome + "foi aprovado na disciplina" + disciplina)
+                            console.log("curso: " + curso)
+                            if (sexoProf == 'f') {
+                                console.log("professora: " + nomeProf)
+                                console.log("notas do aluno: " + nota1 + nota2 + nota3 + nota4)
+                                console.log("media final: " + resultadoMedia)
+                            } else if (sexoProf == 'm') {
+                                console.log("professor: " + nomeProf)
+                                console.log("notas do aluno: " + nota1 + nota2 + nota3 + nota4)
+                                console.log("media final: " + resultadoMedia)
+                            }
                         }
-                    })
-                }
-                entradaDeDados.close()
+                    }
+
+                    if (avaliacao == 'Reprovado') {
+                        if (sexAluno == 'f') {
+                            console.log("Reprovada")
+                            console.log("Relatório da aluna:")
+                            console.log("a aluna " + nome + "foi reprovada na disciplina" + disciplina)
+                            console.log("curso: " + curso)
+                            if (sexoProf == 'f') {
+                                console.log("professora: " + nomeProf)
+                                console.log("notas da aluna: " + nota1 + nota2 + nota3 + nota4)
+                                console.log("media final: " + resultadoMedia)
+                            } else if (sexoProf == 'm') {
+                                console.log("professor: " + nomeProf)
+                                console.log("notas da aluna: " + nota1 + nota2 + nota3 + nota4)
+                                console.log("media final: " + resultadoMedia)
+                            }
+
+                        } else if (sexAluno == 'm') {
+                            console.log("Aprovado")
+                            console.log("Relatório do aluno:")
+                            console.log("o aluno " + nome + "foi aprovado na disciplina" + disciplina)
+                            console.log("curso: " + curso)
+                            if (sexoProf == 'f') {
+                                console.log("professora: " + nomeProf)
+                                console.log("notas do aluno: " + nota1 + nota2 + nota3 + nota4)
+                                console.log("media final: " + resultadoMedia)
+                            } else if (sexoProf == 'm') {
+                                console.log("professor: " + nomeProf)
+                                console.log("notas do aluno: " + nota1 + nota2 + nota3 + nota4)
+                                console.log("media final: " + resultadoMedia)
+                            }
+                        }
+
+
+                    }
+
+
+
+
+
+                    if (avaliacao == 'está em exame') {
+                        entradaDeDados.question('Digite a nota de exame', function (quinNota) {
+                            let nota5 = quinNota;
+                            if (nota5 == '')
+                                console.log('ERRO!! é obrigatorio informar a nota para calcular a nova media')
+                            else if (isNaN(nota5))
+                                console.log('ERRO!! é obrigatorio informar apenas numero')
+                            else if (nota5 > 100)
+                                console.log('ERRO!! É OBRIGATORIO INFORMAR NUMERO ATE 100')
+                            else if (nota5 < 0)
+                                console.log('ERRO!! Informe apenas numero acima de 0')
+                            else {
+                                let resultadoExame = console.log(CalculoMedia.novaMedia(resultadoMedia, notaExame))
+                                let novaSituacao = console.log(CalculoMedia.novaSituacao(newMedia))
+
+                                if (novaSituacao == 'Aprovado em exame') {
+                                    if (sexAluno == 'f') {
+                                        console.log("Aprovada em exame")
+                                        console.log("Relatório da aluna:")
+                                        console.log("a aluna " + nome + "foi aprovada na disciplina" + disciplina)
+                                        console.log("curso: " + curso)
+                                        if (sexoProf == 'f') {
+                                            console.log("professora: " + nomeProf)
+                                            console.log("notas da aluna: " + nota1 + nota2 + nota3 + nota4 + nota5)
+                                            console.log("media final: " + resultadoMedia)
+                                            console.log("media final do exame: " + resultadoExame)
+                                        } else if (sexoProf == 'm') {
+                                            console.log("professor: " + nomeProf)
+                                            console.log("notas da aluna: " + nota1 + nota2 + nota3 + nota4 + nota5)
+                                            console.log("media final: " + resultadoMedia)
+                                            console.log("media final do exame: " + resultadoExame)
+                                        }
+                                    } else if (sexAluno == 'm') {
+                                        console.log("Aprovado em exame")
+                                        console.log("Relatório do aluno:")
+                                        console.log("o aluno " + nome + "foi aprovado na disciplina" + disciplina)
+                                        console.log("curso: " + curso)
+                                        if (sexoProf == 'f') {
+                                            console.log("professora: " + nomeProf)
+                                            console.log("notas do aluno: " + nota1 + nota2 + nota3 + nota4 + nota5)
+                                            console.log("media final: " + resultadoMedia)
+                                            console.log("media final do exame: " + resultadoExame)
+                                        } else if (sexoProf == 'm') {
+                                            console.log("professor: " + nomeProf)
+                                            console.log("notas do aluno: " + nota1 + nota2 + nota3 + nota4 + nota5)
+                                            console.log("media final: " + resultadoMedia)
+                                            console.log("media final do exame: " + resultadoExame)
+                                        }
+                                    }
+
+                                } else {
+                                    if (sexAluno == 'f') {
+                                        console.log("Relatório da aluna:")
+                                        console.log("a aluna " + nome + "foi reprovada na disciplina" + disciplina)
+                                        console.log("curso: " + curso)
+                                        if (sexoProf == 'f') {
+                                            console.log("professora: " + nomeProf)
+                                            console.log("notas da aluna: " + nota1 + nota2 + nota3 + nota4 + nota5)
+                                            console.log("media final: " + resultadoMedia)
+                                            console.log("media final do exame: " + resultadoExame)
+                                        } else if (sexoProf == 'm') {
+                                            console.log("professor: " + nomeProf)
+                                            console.log("notas da aluna: " + nota1 + nota2 + nota3 + nota4 + nota5)
+                                            console.log("media final: " + resultadoMedia)
+                                            console.log("media final do exame: " + resultadoExame)
+                                        }
+                                    } else if (sexAluno == 'm') {
+                                        console.log("Relatório do aluno:")
+                                        console.log("O aluno " + nome + "foi reprovado na disciplina" + disciplina)
+                                        console.log("curso: " + curso)
+                                        if (sexoProf == 'f') {
+                                            console.log("professora: " + nomeProf)
+                                            console.log("notas do aluno: " + nota1 + nota2 + nota3 + nota4 + nota5)
+                                            console.log("media final: " + resultadoMedia)
+                                            console.log("media final do exame: " + resultadoExame)
+                                        } else if (sexoProf == 'm') {
+                                            console.log("professor: " + nomeProf)
+                                            console.log("notas do aluno: " + nota1 + nota2 + nota3 + nota4 + nota5)
+                                            console.log("media final: " + resultadoMedia)
+                                            console.log("media final do exame: " + resultadoExame)
+                                        }
+
+                                    }
+
+                                }
+                            }
+                        })
+                    }
+                    entradaDeDados.close()
                 }
 
             })
@@ -65,28 +266,7 @@ entradaDeDados.question('Digite a primeira nota: ', function (primNota) {
 
 
 
-// ● Nome do curso;
-// ● Nome da disciplina;
-// ● 4 Notas que podem ser entre 0 e 100;
-// Requisitos do Sistema
 
-// o Os valores digitados nas notas devem obrigatoriamente estar entre
-// 0 e 100, caso algum valor estiver fora desta sequência o sistema
-// deverá apresentar um erro;
-
-// o Nenhuma entrada de dados poderá ficar sem preenchimento;
-
-// o Para o sistema apresentar o status de aprovado do aluno a sua
-// média deverá ser acima de 70.
-
-// o Caso a média do aluno estiver abaixo de 50 ele estará reprovado;
-
-// o Se a média estiver entre 50 e 69, o aluno estará de exame, e neste
-// caso o sistema deverá solicitar a nota que o aluno teve no exame.
-
-// o Para o aluno ser aprovado no exame, a nota do exame e a média
-// anterior precisa ficar acima de 60, assim o aluno estará aprovado
-// no exame.
 
 // o Na exibição do Relatório do aluno as palavras aluno e professor,
 // deverá ser exibida conforme o sexo informado.

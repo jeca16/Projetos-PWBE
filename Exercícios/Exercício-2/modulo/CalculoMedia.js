@@ -39,14 +39,19 @@ const situacao = function(resultadoMedia){
 const novaMedia = function(resultadoMedia, notaExame){
     let resultado = Number(resultadoMedia)
     let nota5 = notaExame
-    let novaMedia;
-    let situacao;
+    let newMedia;
+   
 
-    novaMedia = (resultado + nota5)/2
+    newMedia = (resultado + nota5)/2
 
-    if(novaMedia > 60)
+   return newMedia
+}
+
+const novaSituacao = function(newMedia){
+     let situacao;
+     if(newMedia > 60)
         situacao = 'Aprovado em exame'
-    else if( novaMedia < 60)
+    else if( newMedia < 60)
         situacao = 'Reprovado!!!'
 
     return situacao
@@ -54,5 +59,6 @@ const novaMedia = function(resultadoMedia, notaExame){
 module.exports ={
     calcularMedia,
     situacao,
-    novaMedia
+    novaMedia,
+    novaSituacao
 }
