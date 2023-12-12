@@ -24,8 +24,7 @@ entradaDeDados.question('Digite uma tabuada para inicial: ', function (valorInic
 
             entradaDeDados.question('Digite o contador final: ', function (valorFinal) {
                 let contadorFinal = valorFinal
-
-                if(tabuada == '')
+                
                 calculoTabuada.calcularTabuada(tabuada, tabuadaFinal, contador, contadorFinal)
             })
 
