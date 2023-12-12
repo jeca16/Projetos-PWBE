@@ -282,7 +282,7 @@ const exibeProdutos = function(){
     }); 
 }
 
-exibeProdutos();
+// exibeProdutos();
 
 // produtosArrayJson();
 
@@ -290,6 +290,6 @@ exibeProdutos();
 
 // console.log(filtrarProduto('ana'))
 
-// percorrendoArray();
+percorrendoArray();
 
 // introducaoArray();
